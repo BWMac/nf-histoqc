@@ -1,4 +1,6 @@
 process HISTOQC {
+
+    maxForks 20
     
     tag {"$meta.id"}
 

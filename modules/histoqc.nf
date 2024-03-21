@@ -14,7 +14,7 @@ process HISTOQC {
     output:
     path "out/results.tsv", emit: results
     path "out/error.log", emit: errors
-    path "*.png", emit: masks
+    path "out/$images/*.png", emit: masks
     
     script:
     """
@@ -30,6 +30,5 @@ process HISTOQC {
 
     echo "Using config: \$ini"
     python -m histoqc $images -o out -c \$ini
-    cp out/$images/*.png .
     """
 }
